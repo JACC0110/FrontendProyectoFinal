@@ -1,0 +1,46 @@
+<div class="text-center my-4">
+  <h2 class="text-3xl font-bold text-primary">Lista de Amigos</h2>
+</div>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <!-- id Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> ID </th>
+    <td mat-cell *matCellDef="let element"> {{ element.id }} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Nombre </th>
+    <td mat-cell *matCellDef="let element"> {{ element.name }} </td>
+  </ng-container>
+
+  <!-- Gender Column -->
+  <ng-container matColumnDef="gender">
+    <th mat-header-cell *matHeaderCellDef> Género </th>
+    <td mat-cell *matCellDef="let element"> {{ element.gender }} </td>
+  </ng-container>
+
+  <!-- oldName Column -->
+  <ng-container matColumnDef="oldName">
+    <th mat-header-cell *matHeaderCellDef> Nombre Anterior </th>
+    <td mat-cell *matCellDef="let element"> {{ element.oldName || '-' }} </td>
+  </ng-container>
+
+  <!-- newName Column -->
+  <ng-container matColumnDef="newName">
+    <th mat-header-cell *matHeaderCellDef> Nombre Nuevo </th>
+    <td mat-cell *matCellDef="let element"> {{ element.newName || '-' }} </td>
+  </ng-container>
+
+  <!-- Table Name Column -->
+  <ng-container matColumnDef="tableName">
+    <th mat-header-cell *matHeaderCellDef> Nombre de la Tabla </th>
+    <td mat-cell *matCellDef="let element"> {{ element.tableName }} </td>
+  </ng-container>
+
+  <!-- Header & Row Definitions -->
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>
